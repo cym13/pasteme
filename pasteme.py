@@ -25,10 +25,10 @@ def route_paste_post():
         pid = identigen.generate(content)
     except AttributeError as e:
         print(e)
-        bottle.abort(500)
+        bottle.abort(400)
     path = pathbase / pid
     with path.open(mode='wb') as fd:
-            fd.write(content.encode('utf8'))
+        fd.write(content.encode('utf8'))
     bottle.redirect('/' + pid)
 
 @bottle.route('/static/<path:path>')
@@ -60,9 +60,9 @@ def route_paste_get(pid, pformat='colored'):
 def error404(error):
     return bottle.template("not_found")
 
-@bottle.error(500)
-def error500(error):
-    return bottle.template("internal_error")
+@bottle.error(400)
+def error400(error):
+    return bottle.template("bad_request")
 
 if __name__ == '__main__':
     print('I: Starting application with development server')
