@@ -9,7 +9,7 @@ import config
 from pathlib import Path
 
 pathbase = Path(config.pastedir)
-pygment_formater = pygments.formatters.HtmlFormatter()
+pygment_formater = pygments.formatters.HtmlFormatter(linenos="table")
 
 if not pathbase.exists():
     pathbase.mkdir(mode=0o700, parents=True)
