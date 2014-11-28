@@ -2,20 +2,40 @@
 
 import bottle
 import identigen
+import config
+from pathlib import Path
+
+pathbase = Path(config.pastedir)
+
+if not pathbase.exists():
+    pathbase.mkdir(mode=0o700, parents=True)
 
 @bottle.route('/')
 def route_root():
-    return bottle.template('welcome_page')
+    return bottle.template('root')
 
 @bottle.route('/', method='POST')
 def route_paste_post():
     content = bottle.request.forms.get('content')
-    return content + ' ' + identigen.generate(content)
+    pid = identigen.generate(content)
+    path = pathbase / pid
+    with path.open(mode='wb') as fd:
+        fd.write(content.encode('utf8'))
+    bottle.redirect('/' + pid)
 
 @bottle.route('/<pid>')
 @bottle.route('/<pid>/<pformat>')
 def route_paste_get(pid, pformat='colored'):
-    return 'paste: {}, {}'.format(pid, pformat)
+    if pformat != 'colored' and pformat != 'raw':
+        return bottle.template('bad_format')
+    path = pathbase / pid
+    try:
+        with path.open() as fd:
+            content = fd.read()
+    except IOError:
+        # use this template for all file based exception
+        return bottle.template('not_found')
+    return bottle.template('paste', content=content)
 
 if __name__ == '__main__':
     print('I: Starting application with development server')
