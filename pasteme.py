@@ -21,10 +21,14 @@ def route_root():
 @bottle.route('/', method='POST')
 def route_paste_post():
     content = bottle.request.forms.get('content')
-    pid = identigen.generate(content)
+    try:
+        pid = identigen.generate(content)
+    except AttributeError as e:
+        print(e)
+        return bottle.template('internal_error')
     path = pathbase / pid
     with path.open(mode='wb') as fd:
-        fd.write(content.encode('utf8'))
+            fd.write(content.encode('utf8'))
     bottle.redirect('/' + pid)
 
 @bottle.route('/static/<path:path>')
