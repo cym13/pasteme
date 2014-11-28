@@ -49,7 +49,8 @@ def route_paste_get(pid, pformat='colored'):
             content = pygments.highlight(content, lexer, pygment_formater)
         except pygments.util.ClassNotFound:
             pass
-    return bottle.template('paste', content=content)
+        return bottle.template('paste', content=content)
+    return content
 
 if __name__ == '__main__':
     print('I: Starting application with development server')
