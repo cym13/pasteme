@@ -39,6 +39,11 @@ def get(url):
     except requests.exceptions.ConnectionError as e:
         sys.exit(e)
 
+    if req.status_code == 404:
+        return "Paste not found"
+    elif not req.ok:
+        return "An error occured"
+
     return req.text
 
 
