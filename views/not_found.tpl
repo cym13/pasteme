@@ -1,8 +1,4 @@
-<html>
-<head>
-<title>Paste not available</title>
-</head>
-<body>
+% rebase('base.tpl', title='Paste not available')
 <h2>Hello</h2>
 <p>I wanted to display you a paste, but I did not find it. There can be two
 reason for this:</p>
@@ -12,5 +8,3 @@ reason for this:</p>
 </ul>
 
 <p>I'm sorry for you, but <i>nonetheless</i> I whish you a very good day.</p>
-</body>
-</html>

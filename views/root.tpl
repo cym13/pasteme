@@ -1,9 +1,4 @@
-<html>
-<head>
-<title>Paste snippets</title>
-</head>
-<body>
-
+% rebase('base.tpl', title='Paste snippets')
 You are on a simple paste deposit service.
 
 Please copy your text on the box below:
@@ -14,6 +9,3 @@ Please copy your text on the box below:
 
 <button for="content">Paste</button>
 </form>
-
-</body>
-</html>
