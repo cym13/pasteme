@@ -50,7 +50,7 @@ def get(url):
 def main():
     args = docopt(__doc__)
 
-    if '://' in args["FILE"]:
+    if args["FILE"] and '://' in args["FILE"]:
         print(get(args["FILE"]))
         return
 
