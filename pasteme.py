@@ -8,6 +8,7 @@ import identigen
 import config
 from pathlib import Path
 
+application = bottle.default_app() # application used for wsgi mode
 pathbase = Path(config.pastedir)
 pygment_formater = pygments.formatters.HtmlFormatter()
 
@@ -69,4 +70,3 @@ if __name__ == '__main__':
     bottle.run(host='0.0.0.0', port=8080, debug=True, reloader=True)
 else:
     print('I: Starting application as a wsgi application')
-    application = bottle.default_app() # application used for wsgi mode
