@@ -42,7 +42,7 @@ def get(url):
     if req.status_code == 404:
         return "Paste not found"
     elif not req.ok:
-        return "An error occured"
+        return "An error occured (%s)" % req.status_code
 
     return req.text
 
