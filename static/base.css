@@ -1,3 +1,15 @@
 html {
     background-color: #002b36;
 }
+
+#floatingmenu {
+    border: 1px solid #000;
+    width: 200px;
+    height: 50px;
+    background-color: #002D38;
+    display: block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    position: absolute;
+}
