@@ -10,7 +10,7 @@ from pathlib import Path
 
 application = bottle.default_app() # application used for wsgi mode
 pathbase = Path(config.pastedir)
-pygment_formater = pygments.formatters.HtmlFormatter()
+pygment_formater = pygments.formatters.HtmlFormatter(linenos="table")
 
 if not pathbase.exists():
     pathbase.mkdir(mode=0o700, parents=True)
