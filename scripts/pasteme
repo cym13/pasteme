@@ -1,0 +1,18 @@
+#!/bin/bash
+
+file="$1"
+tempfile=""
+
+rmtempfile_cb() { rm "$tempfile"; }
+
+if [ "$file" == "" ]; then
+    tempfile="$(mktemp)"
+    trap rmtempfile_cb EXIT
+    cat > $tempfile
+    file=$tempfile
+fi
+
+file="${file/\\/\\\\}"
+file="${file/\"/\\\"}"
+
+curl --form "content=<\"$file\"" http://paste.devys.org/
