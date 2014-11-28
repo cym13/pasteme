@@ -1,11 +1,15 @@
 #!/usr/bin/python3
 
 import bottle
+import pygments
+import pygments.formatters
+import pygments.lexers
 import identigen
 import config
 from pathlib import Path
 
 pathbase = Path(config.pastedir)
+pygment_formater = pygments.formatters.HtmlFormatter()
 
 if not pathbase.exists():
     pathbase.mkdir(mode=0o700, parents=True)
@@ -23,6 +27,10 @@ def route_paste_post():
         fd.write(content.encode('utf8'))
     bottle.redirect('/' + pid)
 
+@bottle.route('/static/<path:path>')
+def route_static(path):
+    return bottle.static_file(path, root='static')
+
 @bottle.route('/<pid>')
 @bottle.route('/<pid>/<pformat>')
 def route_paste_get(pid, pformat='colored'):
@@ -35,6 +43,12 @@ def route_paste_get(pid, pformat='colored'):
     except IOError:
         # use this template for all file based exception
         return bottle.template('not_found')
+    if pformat == 'colored':
+        try:
+            lexer = pygments.lexers.guess_lexer(content)
+            content = pygments.highlight(content, lexer, pygment_formater)
+        except pygments.util.ClassNotFound:
+            pass
     return bottle.template('paste', content=content)
 
 if __name__ == '__main__':

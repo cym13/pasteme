@@ -17,8 +17,22 @@ It features the following:
 It can be used directly (more for development) or from a wsgi compatible
 web server.
 
+Dependencies
+============
+
+- python3 (3.4 at least)
+- bottle (included as submodule in this repository)
+- pygments (packaged on a lot of distributions)
+
 Installation
 ============
+
+Dependencies:
+
+.. code: shell
+
+    # under deb based systems (debian/ubuntu for example)
+    sudo apt-get install python3 python3-pygments
 
 Clone this repository recursively:
 
@@ -28,3 +42,4 @@ Clone this repository recursively:
     cd pasteme
     # to run it with dev mode, just run it
     ./pastme.py
+
