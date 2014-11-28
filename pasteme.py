@@ -25,7 +25,7 @@ def route_paste_post():
         pid = identigen.generate(content)
     except AttributeError as e:
         print(e)
-        return bottle.template('internal_error')
+        bottle.abort(500)
     path = pathbase / pid
     with path.open(mode='wb') as fd:
             fd.write(content.encode('utf8'))
@@ -46,7 +46,7 @@ def route_paste_get(pid, pformat='colored'):
             content = fd.read()
     except IOError:
         # use this template for all file based exception
-        return bottle.template('not_found')
+        bottle.abort(404)
     if pformat == 'colored':
         try:
             lexer = pygments.lexers.guess_lexer(content)
@@ -55,6 +55,14 @@ def route_paste_get(pid, pformat='colored'):
             pass
         return bottle.template('paste', content=content)
     return content
+
+@bottle.error(404)
+def error404(error):
+    return bottle.template("not_found")
+
+@bottle.error(500)
+def error500(error):
+    return bottle.template("internal_error")
 
 if __name__ == '__main__':
     print('I: Starting application with development server')
