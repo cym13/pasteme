@@ -21,7 +21,8 @@ def route_root():
 
 @bottle.route('/', method='POST')
 def route_paste_post():
-    content = bottle.request.forms.get('content')
+    content = bottle.request.forms.getunicode('content', '')
+
     try:
         pid = identigen.generate(content)
     except AttributeError as e:
