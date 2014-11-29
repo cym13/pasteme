@@ -1,8 +1,6 @@
 Description
 ===========
 
-WARNING: WIP !
-
 A simple pastebin like service implemented in python3 with bottle.
 
 The pastes storage backend are simple files.
