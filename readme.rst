@@ -43,3 +43,11 @@ Clone this repository recursively:
     # to run it with dev mode, just run it
     ./pastme.py
 
+
+Credits
+=======
+The keyboard keys icons are from a set_ designed by Chromatix.
+They are licensed as `CC Attribution-NonCommercial-No Derivate 4.0`__.
+
+.. _set http://www.iconarchive.com/show/keyboard-keys-icons-by-chromatix.2.html
+.. __ http://creativecommons.org/licenses/by-nc-nd/4.0/legalcode
