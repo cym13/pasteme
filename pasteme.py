@@ -39,8 +39,8 @@ def route_paste_get(pid, pformat='colored'):
         return bottle.template('bad_format')
     path = pathbase / pid
     try:
-        with path.open() as fd:
-            content = fd.read()
+        with path.open(mode='rb') as fd:
+            content = fd.read().decode('utf8')
     except IOError:
         # use this template for all file based exception
         bottle.abort(404)
