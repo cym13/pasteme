@@ -6,5 +6,7 @@ if [ "$file" == "" ]; then
     file=-
 fi
 
-cat "$file" \
-    | curl -w '%{redirect_url}\n' --form 'content=<-' http://paste.devys.org/
+sed '1s/^/content=/' "$file" \
+    | curl -w '%{redirect_url}\n' \
+        -X POST -H "Content-Type: text/plain; charset=UTF-8" \
+        --data-binary @- http://paste.devys.org/
