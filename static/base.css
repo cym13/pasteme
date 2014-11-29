@@ -4,6 +4,10 @@ html {
 
 body {
     color: #aaaaaa;
+    position: relative;
+    max-width: 750px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 #content {
@@ -20,7 +24,20 @@ body {
 #floatingmenu {
     display: block;
     position: absolute;
-    right: 0px;
-    top: 0px;
+    right: 0;
+    top: 0;
     position: absolute;
+}
+
+#floatingmenu a img {
+    margin: 0;
+}
+
+#floatingmenu button {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    display: inline;
+    width: 96px;
+    height: 96px;
 }
