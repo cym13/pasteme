@@ -25,8 +25,8 @@ from docopt import docopt
 def post(text, url):
     try:
         req = requests.post(url, data={"content":text})
-    except requests.exceptions.ConnectionError as e:
-        sys.exit(e)
+    except BaseException as e:
+        manage(e, url)
     return req.url
 
 
@@ -36,8 +36,8 @@ def get(url):
 
     try:
         req = requests.get(url)
-    except requests.exceptions.ConnectionError as e:
-        sys.exit(e)
+    except BaseException as e:
+        manage(e, url)
 
     if req.status_code == 404:
         return "Paste not found"
@@ -45,6 +45,20 @@ def get(url):
         return "An error occured (%s)" % req.status_code
 
     return req.text
+
+
+def manage(excep, url=None):
+    try:
+        raise excep
+    except requests.exceptions.ConnectionError as e:
+        sys.exit(e)
+    except (requests.exceptions.InvalidURL,
+            requests.exceptions.InvalidSchema) as e:
+        print("Invalid URL: %s" % url, file=sys.stderr)
+        if not url.startswith("http"):
+            print("Perhaps you meant http://%s" % url, file=sys.stderr)
+        sys.exit(1)
+
 
 
 def main():
