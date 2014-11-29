@@ -56,7 +56,6 @@ def route_paste_get(pid, pformat='colored'):
             pass
         return bottle.template('paste', content=content, pid=pid)
     bottle.response.content_type = 'text/plain; charset=UTF8' # HTTP header
-    bottle.response.charset = 'utf-8' # used to encode response
     return content
 
 @bottle.error(404)
