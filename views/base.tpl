@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="/static/base.css" />
 </head>
 <body>
+<img id="banner" alt="Pasteme" src="/static/banner.png"><br/>
 {{!base}}
 </body>
 </html>
