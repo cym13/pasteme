@@ -7,14 +7,9 @@ body {
 }
 
 #floatingmenu {
-    border: 1px solid #000;
-    width: 200px;
-    height: 50px;
-    background-color: #343844;
     display: block;
     position: absolute;
     right: 0px;
     top: 0px;
     position: absolute;
-    color: #E9A94B;
 }
