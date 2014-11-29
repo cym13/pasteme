@@ -1,18 +1,10 @@
 #!/bin/bash
 
 file="$1"
-tempfile=""
-
-rmtempfile_cb() { rm "$tempfile"; }
 
 if [ "$file" == "" ]; then
-    tempfile="$(mktemp)"
-    trap rmtempfile_cb EXIT
-    cat > $tempfile
-    file=$tempfile
+    file=-
 fi
 
-file="${file/\\/\\\\}"
-file="${file/\"/\\\"}"
-
-curl --form "content=<\"$file\"" http://paste.devys.org/
+cat "$file" \
+    | curl -w '%{redirect_url}\n' --form 'content=<-' http://paste.devys.org/
