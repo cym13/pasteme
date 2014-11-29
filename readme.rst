@@ -1,7 +1,8 @@
 Description
 ===========
 
-A simple pastebin like service implemented in python3 with bottle.
+A simple pastebin like service implemented in python3 with bottle. This is
+a free software as defined by http://opensource.org/osd.
 
 The pastes storage backend are simple files.
 
