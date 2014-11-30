@@ -24,9 +24,9 @@
 .highlight .c,.highlight .cm,.highlight .c1,.highlight .cs { color: #8D9684; }
 .highlight .err,.highlight .g,.highlight .l,.highlight .n,.highlight .x,.highlight .p,.highlight .ge,
 .highlight .gp,.highlight .gs,.highlight .gt,.highlight .ld,.highlight .s,.highlight .nc,.highlight .nd,
-.highlight .ne,.highlight .nl,.highlight .nn,.highlight .nx,.highlight .py,.highlight .ow,.highlight .w,.highlight .sb,
+.highlight .ne,.highlight .nl,.highlight .nn,.highlight .nx,.highlight .py,.highlight .ow,.highlight .w,.highlight .sb { color: #C1C2C3; }
 .highlight .sc,.highlight .sd,.highlight .s2,.highlight .se,.highlight .sh,.highlight .si,.highlight .sx,.highlight .sr,
-.highlight .s1,.highlight .ss,.highlight .bp { color: #C1C2C3; }
+.highlight .s1,.highlight .ss,.highlight .bp { color: #b8ff60 ;}
 .highlight .k,.highlight .kc,.highlight .kd,.highlight .kn,.highlight .kp,.highlight .kr,
 .highlight .nt { color: #729fcf; }
 .highlight .cp,.highlight .gh,.highlight .gu,.highlight .na,.highlight .nf { color: #E9A94B ; }
