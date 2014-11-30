@@ -55,9 +55,9 @@ def route_paste_get(pid, pformat='colored'):
     if pformat == 'colored':
         try:
             lexer = pygments.lexers.guess_lexer(content)
-            content = pygments.highlight(content, lexer, pygment_formater)
         except pygments.util.ClassNotFound:
-            pass
+            lexer = pygments.lexers.special.TextLexer()
+        content = pygments.highlight(content, lexer, pygment_formater)
         return bottle.template('paste', content=content, pid=pid)
     bottle.response.content_type = 'text/plain; charset=UTF8' # HTTP header
     return content
