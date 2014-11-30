@@ -33,11 +33,11 @@ def route_static(path):
     return bottle.static_file(path, root='static')
 
 @bottle.route('/favicon.ico')
-def route_favicon(path):
+def route_favicon():
     return bottle.static_file('favicon.ico', root='static')
 
 @bottle.route('/robots.txt')
-def route_favicon(path):
+def route_favicon():
     return bottle.static_file('robots.txt', root='static')
 
 @bottle.route('/<pid>')
