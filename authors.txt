@@ -1,0 +1,2 @@
+This pasteme project has been created by VG (vg@devys.org) with Cédric Picard
+(cedric.picard@efrei.net) as its main contributor.
