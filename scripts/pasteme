@@ -1,12 +1,8 @@
 #!/bin/bash
-
-file="$1"
-
-if [ "$file" == "" ]; then
-    file=-
-fi
-
-sed '1s/^/content=/' "$file" \
-    | curl -w '%{redirect_url}\n' \
-        -X POST -H "Content-Type: text/plain; charset=UTF-8" \
-        --data-binary @- http://paste.devys.org/
+tempfile="$(mktemp)"
+cat "${1:--}" > $tempfile
+curl -w '%{redirect_url}\n' --data-urlencode content@$tempfile \
+    http://paste.devys.org/
+rc=$?
+rm $tempfile
+exit $rc
