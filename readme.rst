@@ -28,14 +28,14 @@ Installation
 
 Dependencies:
 
-.. code: shell
+.. code:: shell
 
     # under deb based systems (debian/ubuntu for example)
     sudo apt-get install python3 python3-pygments
 
 Clone this repository recursively:
 
-.. code: shell
+.. code:: shell
 
     git clone --recusive git://git.devys.org/pasteme
     cd pasteme
