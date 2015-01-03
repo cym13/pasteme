@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import time
 import bottle
 import pygments
 import pygments.formatters
@@ -58,7 +59,11 @@ def route_paste_get(pid, pformat='colored'):
         except pygments.util.ClassNotFound:
             lexer = pygments.lexers.special.TextLexer()
         content = pygments.highlight(content, lexer, pygment_formater)
-        return bottle.template('paste', content=content, pid=pid)
+        timeleft = path.lstat()[9] + config.timeout * 24 * 3600
+        return bottle.template('paste',
+                               content=content,
+                               timeleft=time.ctime(timeleft),
+                               pid=pid)
     bottle.response.content_type = 'text/plain; charset=UTF8' # HTTP header
     return content
 
