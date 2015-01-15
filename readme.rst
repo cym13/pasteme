@@ -46,6 +46,9 @@ Clone this repository recursively:
 Credits
 =======
 
+The original git repository for this project can be found at
+http://git.devys.org/pasteme/
+
 The keyboard keys icons are from a set_ designed by Chromatix.
 They are licensed as `CC Attribution-NonCommercial-No Derivate 4.0`__.
 
