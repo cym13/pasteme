@@ -6,7 +6,7 @@
     <link rel="icon" type="image/ico" href="/static/favicon.ico" />
 </head>
 <body>
-<img id="banner" alt="Pasteme" src="/static/banner.png"><br />
+<a href="/"><img id="banner" alt="Pasteme" src="/static/banner.png"></a><br />
 {{!base}}
 </body>
 </html>
