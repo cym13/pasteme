@@ -4,7 +4,7 @@
 reason for this:</p>
 <ul>
     <li>Either the paste expired</li>
-    <li>Or the paste never existed (the <b>URL</b> might be wrong)<li>
+    <li>Or the paste never existed (the <b>URL</b> might be wrong)</li>
 </ul>
 
 <p>I'm sorry for you, but <i>nonetheless</i> I whish you a very good day.</p>
