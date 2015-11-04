@@ -7,4 +7,4 @@ reason for this:</p>
     <li>Or the paste never existed (the <b>URL</b> might be wrong)</li>
 </ul>
 
-<p>I'm sorry for you, but <i>nonetheless</i> I whish you a very good day.</p>
+<p>I'm sorry for you, but <i>nonetheless</i> I wish you a very good day.</p>
