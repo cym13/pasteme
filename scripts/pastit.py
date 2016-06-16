@@ -14,7 +14,7 @@ Arguments:
 
 Options:
     -u, --url url   Alternate url of the pasteme
-                    Default is http://paste.devys.org/
+                    Default is https://paste.devys.org/
 """
 
 import sys
@@ -55,8 +55,8 @@ def manage(excep, url=None):
     except (requests.exceptions.InvalidURL,
             requests.exceptions.InvalidSchema) as e:
         print("Invalid URL: %s" % url, file=sys.stderr)
-        if not url.startswith("http"):
-            print("Perhaps you meant http://%s" % url, file=sys.stderr)
+        if not url.startswith("https"):
+            print("Perhaps you meant https://%s" % url, file=sys.stderr)
         sys.exit(1)
 
 
@@ -69,7 +69,7 @@ def main():
         return
 
 
-    url = args["--url"] or "http://paste.devys.org/"
+    url = args["--url"] or "https://paste.devys.org/"
 
     if args["FILE"]:
         try:
