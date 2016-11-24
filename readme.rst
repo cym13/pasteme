@@ -42,6 +42,19 @@ Clone this repository recursively:
     # to run it with dev mode, just run it
     ./pastme.py
 
+License
+=======
+
+Unless specified otherwise, this project is licensed under the terms of the
+GNU General Public License as published by the Free Software Foundation,
+either version 3 of the License, or (at your option) any later version. You
+should have received a copy of the GNU General Public License along with this
+program. If not, see <https://opensource.org/licenses/GPL-3.0> or
+<http://www.gnu.org/licenses/>.
+
+SPDX-License-Identifier: GPL-3.0+
+
+Copyright © 2016 vg <vg@devys.org>
 
 Credits
 =======
