@@ -37,7 +37,7 @@ Clone this repository recursively:
 
 .. code:: shell
 
-    git clone --recusive git://git.devys.org/pasteme
+    git clone --recursive git://git.devys.org/pasteme
     cd pasteme
     # to run it with dev mode, just run it
     ./pastme.py
